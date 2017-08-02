@@ -29,11 +29,15 @@ def sigmoid_grad(z):
 
 #forward propagation
 def forward_prop(X,Theta1,Theta2):
-    a1=np.c_[np.ones(X.shape[0]),X]   #(4*3)=((4*1)+(4*2))  this is the activation matrix for neurons of the first layer and the bias unit(X=X+(column of 1))
-
-    z2=np.dot(a1,Theta1)     #(4*2)=(4*3)*(3*2) this is the input given to the second layer i.e input for first layer times the weights of corresponding networks
-
-    a2=sigmoid(z2)   #(4*2)=(4*2) this is the activation for the neurons of second layer
+    
+    #this is the activation matrix for neurons of the first layer and the bias unit (X=X+(column of 1))
+    a1=np.c_[np.ones(X.shape[0]),X]   #(4*3)=((4*1)+(4*2))  
+    
+    #this is the input given to the second layer i.e input for first layer times the weights of corresponding networks
+    z2=np.dot(a1,Theta1)     #(4*2)=(4*3)*(3*2) 
+    
+    #this is the activation for the neurons of second layer
+    a2=sigmoid(z2)   #(4*2)=(4*2) 
 
     a2=np.c_[np.ones(a2.shape[0]),a2] #(4*3)=((4*1)+(4*2)) adding the bias unit
 
